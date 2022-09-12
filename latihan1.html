@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1 Javascript</title>
+</head>
+
+<body>
+    <script>
+        let pegawai = "Udin";
+        let jabatan = "Manager";
+        let status = "Menikah";
+        let gaji_pokok;
+        let tunjanganJabatan;
+        let tunjanganKeluarga;
+        let bpjs;
+        let gajiTotal;
+
+        if (jabatan == "Manager") {
+            gaji_pokok = 15000000;
+        } else if (jabatan == "Assisten Manager") {
+            gaji_pokok = 10000000;
+        } else if (jabatan == "Staff") {
+            gaji_pokok = 5000000;
+        }
+
+        tunjanganJabatan = (gaji_pokok * 15) / 100;
+        bpjs = (gaji_pokok * 10) / 100;
+        tunjanganKeluarga = status == "Menikah" ? (gaji_pokok * 20) / 100 : 0;
+        gajiTotal = gaji_pokok + tunjanganJabatan + tunjanganKeluarga + bpjs;
+
+        document.write(`
+    <h3> Nama Pegawai : ${pegawai} </h3>
+    <h3> Jabatan : ${jabatan} </h3>
+    <h3> Status : ${status} </h3>
+    <table border='1' cellpadding='7' cellspacing='1'>
+        <thead bgcolor="gray">
+            <tr>
+                <th>Data Gaji</th>
+                <th>Nominal Gaji</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gaji Pokok</td>
+                <td align="center"> ${gaji_pokok} </td>
+            </tr>
+            <tr>
+                <td>Tunjangan Jabatan</td>
+                <td align="center">${tunjanganJabatan}</td>
+            </tr>
+            <tr>
+                <td>Tunjangan Keluarga</td>
+                <td align="center">${tunjanganKeluarga}</td>
+            </tr>
+            <tr>
+                <td>BPJS</td>
+                <td align="center">${bpjs}</td>
+            </tr>
+        </tbody>
+     <tfoot bgcolor="orange">
+        <tr>
+            <th>Total Gaji</th>
+            <th align="center">${gajiTotal}</th>
+        </tr>
+     </tfoot>
+    </table> 
+    `)
+    </script>
+</body>
+
+</html>
